@@ -1,0 +1,2 @@
+airport = 'CYLW'
+date = 'TODAY'
