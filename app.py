@@ -45,8 +45,14 @@ for arrival in airport_results['scheduled_arrivals']:
     # Lookup the aircraft type
     current_aircraft = aircraft_database[aircraft_database['ICAO_Code'] == arrival["aircraft_type"].strip()]
     
+    # calculate the weighted score of the aircraft based on numerous factors
+    score = (
+        1
+    )
+
     # Store key aircraft metrics in a standard array
     key_aircraft_metrics = {"model": current_aircraft.Model_FAA.values[0],
+                            "overall_score": score,
                             "ADG": convert.roman_numerals_to_int(current_aircraft.ADG.values[0]), 
                             "TDG": int(current_aircraft.TDG.values[0][0]), 
                             "approach_speed": float(current_aircraft.Approach_Speed_knot.values[0]), 
